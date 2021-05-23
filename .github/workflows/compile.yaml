@@ -17,8 +17,9 @@ jobs:
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
+          pacman -Syu --noconfirm
           pacman -S --noconfirm mingw-w64-i686-binutils mingw-w64-i686-gcc mingw-w64-i686-gdb
-          pacman -S --noconfirm make pkgconfig autoconf automake libtool intltool
+          pacman -S --noconfirm make pkg-config autoconf automake libtool intltool
           pacman -S --noconfirm mingw-w64-i686-gtk3
           pacman -S --noconfirm mingw-w64-i686-curl
           echo CI run autogen.sh ....
