@@ -1,5 +1,5 @@
-name: Hello World
-on: [push, pull_request]
+name: Compile
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build:
@@ -17,10 +17,10 @@ jobs:
       - name: CI-Build
         run: |
           echo 'Running in MSYS2!'
-          pacman -S mingw-w64-i686-binutils mingw-w64-i686-gcc mingw-w64-i686-gdb
-          pacman -S make pkgconfig autoconf automake libtool intltool
-          pacman -S mingw-w64-i686-gtk3
-          pacman -S mingw-w64-i686-curl
+          pacman -S --noconfirm mingw-w64-i686-binutils mingw-w64-i686-gcc mingw-w64-i686-gdb
+          pacman -S --noconfirm make pkgconfig autoconf automake libtool intltool
+          pacman -S --noconfirm mingw-w64-i686-gtk3
+          pacman -S --noconfirm mingw-w64-i686-curl
           echo CI run autogen.sh ....
           . autogen.sh
           echo CI run configure....
